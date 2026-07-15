@@ -1,0 +1,56 @@
+### Variáveis Globais
+@baseUrl = http://localhost:3000/api
+
+### 1. Criar uma nova categoria (Trabalho)
+POST {{baseUrl}}/categorias
+Content-Type: application/json
+
+{
+    "nome": "Trabalho",
+    "cor": "#3b82f6"
+}
+
+###
+
+### 2. Criar mais uma categoria (Estudos)
+POST {{baseUrl}}/categorias
+Content-Type: application/json
+
+{
+    "nome": "Estudos",
+    "cor": "#a855f7"
+}
+
+###
+
+### 3. Listar todas as categorias cadastradas
+GET {{baseUrl}}/categorias
+
+### 4. Criar uma nova tarefa vinculada à categoria 1 (Trabalho)
+POST {{baseUrl}}/tarefas
+Content-Type: application/json
+
+{
+    "titulo": "Reunião de Alinhamento",
+    "descricao": "Discutir as telas do novo sistema de agenda com o cliente.",
+    "data_tarefa": "2026-07-08",
+    "categoria_id": 1
+}
+
+###
+
+### 5. Criar outra tarefa vinculada à categoria 2 (Estudos)
+POST {{baseUrl}}/tarefas
+Content-Type: application/json
+
+{
+    "titulo": "Estudar React e Tailwind",
+    "descricao": "Montar a estrutura de grid do calendário.",
+    "data_tarefa": "2026-07-15",
+    "categoria_id": 2
+}
+
+###
+
+### 6. Buscar todas as tarefas de Julho de 2026
+GET {{baseUrl}}/tarefas?mes=07&ano=2026
